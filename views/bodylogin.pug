@@ -5,30 +5,31 @@
             .signup-content
                 .signup-form
                     h2.form-title Sign up
-                    form#register-form.register-form(method='POST')
+                    form#register-form.register-form(method='POST', action='/regis/', role='form')
+                        -if (messages.info)
+                        .alert
+                            span.closebtn(onclick="this.parentElement.style.display='none';") &times;
+                            |  #{messages.info}
                         .form-group
-                            label(for='name')
+                            label(for='firstname')
                                 i.zmdi.zmdi-account.material-icons-name
-                            input#name(type='text' name='name' placeholder='Your Name')
+                            input#firstname(type='text' name='firstname' placeholder='First Name')
+                        .form-group
+                            label(for='lastname')
+                                i.zmdi.zmdi-account.material-icons-name
+                            input#lastname(type='text' name='lastname' placeholder='Last Name')
+                        .form-group
+                            label(for='username')
+                                i.zmdi.zmdi-account.material-icons-name
+                            input#username(type='text' name='username' placeholder='Username')
                         .form-group
                             label(for='email')
                                 i.zmdi.zmdi-email
-                            input#email(type='email' name='email' placeholder='Your Email')
+                            input#email(type='email' name='email' placeholder='Email')
                         .form-group
-                            label(for='pass')
-                                i.zmdi.zmdi-lock
-                            input#pass(type='password' name='pass' placeholder='Password')
-                        .form-group
-                            label(for='re-pass')
+                            label(for='password')
                                 i.zmdi.zmdi-lock-outline
-                            input#re_pass(type='password' name='re_pass' placeholder='Repeat your password')
-                        .form-group
-                            input#agree-term.agree-term(type='checkbox' name='agree-term')
-                            label.label-agree-term(for='agree-term')
-                                span
-                                    span
-                                | I agree all statements in
-                                a.term-service(href='#') Terms of service
+                            input#password(type='password' name='password' placeholder='Password')
                         .form-group.form-button
                             input#signup.form-submit(type='submit' name='signup' value='Register')
                 .signup-image
@@ -45,15 +46,15 @@
                     a.signup-image-link(href='#') Create an account
                 .signin-form
                     h2.form-title Sign up
-                    form#login-form.register-form(method='POST')
+                    form#login-form.register-form(method='POST', action='/login/', role='form')
                         .form-group
-                            label(for='your_name')
+                            label(for='username')
                                 i.zmdi.zmdi-account.material-icons-name
-                            input#your_name(type='text' name='your_name' placeholder='Your Name')
+                            input#your_name(type='text' name='username' placeholder='Username')
                         .form-group
                             label(for='your_pass')
                                 i.zmdi.zmdi-lock
-                            input#your_pass(type='password' name='your_pass' placeholder='Password')
+                            input#your_pass(type='password' name='password' placeholder='Password')
                         .form-group
                             input#remember-me.agree-term(type='checkbox' name='remember-me')
                             label.label-agree-term(for='remember-me')
@@ -62,18 +63,6 @@
                                 | Remember me
                         .form-group.form-button
                             input#signin.form-submit(type='submit' name='signin' value='Log in')
-                    .social-login
-                        span.social-label Or login with
-                        ul.socials
-                            li
-                                a(href='#')
-                                    i.display-flex-center.zmdi.zmdi-facebook
-                            li
-                                a(href='#')
-                                    i.display-flex-center.zmdi.zmdi-twitter
-                            li
-                                a(href='#')
-                                    i.display-flex-center.zmdi.zmdi-google
 // JS
 script(src='loginasset/vendor/jquery/jquery.min.js')
 script(src='loginasset/js/main.js')
